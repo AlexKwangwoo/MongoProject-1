@@ -105,4 +105,6 @@ coordinates: { type: [], default: undefined }
 
 20. pre 미들웨어에서는 항상 next() 붙여줘야함 안그러면 이동안함..다음껄로.. 걍 왠만하면 끝이아닌경우에 다 next() 붙여줘야 다음 곳으로 이동함!!
 
-21.
+21. url: '/api/v1/users/login', 이처럼 쓸수있는이유는 호스팅하는곳이 api와 웹과 같은 주소에 있기때문!
+
+22.
