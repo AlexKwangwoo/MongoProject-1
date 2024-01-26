@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    block head
+      meta(charset='UTF-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')
+      meta(http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;")
+      //- script(type="module" src="module.js")
+      link(rel='stylesheet' href='/css/style.css')
+      link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+      link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+      title Natours | #{title}
+      //- script(script-src-elem='https://js.stripe.com/v3/')
+
+
+  body(data-alert=`${alert ? alert : ''}`)
+    // HEADER
+    include _header
+
+    //- base를 불러서 안에 넣는게 아니라..  
+    //- ex) overview페이지 가면 block을 content라 해서 거기에 이 베이스가 간뒤 베이스안에 content를 내용을 넣는거임
+    // CONTENT
+    block content
+      h1 This is a placeholder heading
+
+    // FOOTER
+    include _footer
+
+    //- axios 를 글로벌하게 쓸려면 이렇게 하면됨!
+    //- script(type="module" src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js') 
+    //- script(src='/js/mapbox.js') 
+    //- 돈때문에 안함 유료 결제.. mapbox!!
+    //- 최상위에서 mapbox실행
+    //- script(type="module" src='/js/index.js')
+    //- script(type="module" src='/js/login.js')
+    
+    //- 하나로 다 합쳐줄거임! 너무 많이 추가되긴싫음
+    //- npm run watch:js  를 입력하면 번들이 만들어질것임! package.json에 보면 js에 있는 index를 bundle파일로 변환할것임
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/bundle.js') 
